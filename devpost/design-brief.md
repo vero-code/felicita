@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 ---
 
 # Design brief: Felicita - Spatial Light Planner
