@@ -185,9 +185,9 @@ export class FelicitaState {
 
   /** Light distribution radius scaling factor based on room dimensions */
   public zoneRadiusScale(): number {
-    if (this.roomAreaSqM <= 10) return 0.72
-    if (this.roomAreaSqM <= 15) return 0.88
-    return 1.05 // 20 m²
+    if (this.roomAreaSqM <= 10) return 0.65 // Compact local light pool for small 10 m² room
+    if (this.roomAreaSqM <= 15) return 0.88 // Standard 15 m² distribution
+    return 1.25 // Wide spread across large 20 m² room
   }
 
   public reset(): void {

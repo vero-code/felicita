@@ -408,8 +408,11 @@ export class FelicitaMain extends BaseScriptComponent {
     this.audio.playPlace()
     const spec = this.state.lamps[lamp.id]
     const spotSpec = this.state.hotspots[spot.id]
+    const targetLm = this.state.recommendedLumens()
+    const pct = this.state.coveragePercent()
+    const statusNote = pct >= 100 ? "· 100% lit! Room safe" : `· ${pct}% of ${targetLm} lm target`
     this.syncAllVisuals(
-      `Placed ${spec.displayName} on ${spotSpec.displayName} (+${spec.lumens} lumens activated)`
+      `Placed ${spec.displayName} on ${spotSpec.displayName} (+${spec.lumens} lm ${statusNote})`
     )
   }
 
