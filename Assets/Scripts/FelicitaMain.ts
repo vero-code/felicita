@@ -185,7 +185,9 @@ export class FelicitaMain extends BaseScriptComponent {
     // Bind UI events
     this.statusHud.onSelectArea.add((sqM: number) => {
       this.state.roomAreaSqM = sqM
-      this.syncAllVisuals(`Room area set to ${sqM} m² — pinch a lamp to plan light coverage`)
+      const targetLm = this.state.recommendedLumens()
+      const pct = this.state.coveragePercent()
+      this.syncAllVisuals(`Area set to ${sqM} m² (Target: ${targetLm} lm · ${pct}% lit)`)
     })
 
     this.statusHud.onResetRoom.add(() => {
@@ -465,17 +467,21 @@ export class FelicitaMain extends BaseScriptComponent {
     }
 
     // 2. Update each hotspot dot, highlight ring, and radial light coverage zone
+    const areaScale = this.state.zoneRadiusScale()
     for (const spot of this.hotspotEntries) {
       const spotSpec = this.state.hotspots[spot.id]
       const occupiedLampId = spotSpec.occupiedByLampId
       const isOccupied = occupiedLampId !== null
-      const zoneRadius = occupiedLampId ? this.state.lamps[occupiedLampId].zoneRadiusCm : undefined
+      const baseRadius = occupiedLampId ? this.state.lamps[occupiedLampId].zoneRadiusCm : undefined
+      const zoneRadius = baseRadius !== undefined ? baseRadius * areaScale : undefined
       spot.meshComp.setHotspotState(lampHeld, isOccupied, zoneRadius)
     }
 
     // 3. Update room furniture illumination boost based on total lumens
     const totalLm = this.state.totalLumens()
-    const boost01 = Math.min(1.0, totalLm / 1000.0)
+    const targetLm = this.state.recommendedLumens()
+    const pct = this.state.coveragePercent()
+    const boost01 = Math.min(1.0, totalLm / Math.max(1, targetLm))
     if (this.roomTable) this.roomTable.setIlluminationBoost(boost01)
     if (this.roomChair) this.roomChair.setIlluminationBoost(boost01)
     if (this.roomShelf) this.roomShelf.setIlluminationBoost(boost01)
@@ -489,6 +495,12 @@ export class FelicitaMain extends BaseScriptComponent {
     )
     if (guidanceMsg) {
       this.statusHud.setGuidance(guidanceMsg)
+    } else if (totalLm > 0) {
+      if (pct >= 100) {
+        this.statusHud.setGuidance(`100% lit (${totalLm}/${targetLm} lm)! Room is safely illuminated.`)
+      } else {
+        this.statusHud.setGuidance(`Coverage: ${pct}% (${totalLm}/${targetLm} lm target for ${this.state.roomAreaSqM} m²)`)
+      }
     }
   }
 

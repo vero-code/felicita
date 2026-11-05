@@ -203,9 +203,9 @@ export class FelicitaStatusHudUI extends BaseScriptComponent {
     colItems.push(btnRowItem)
 
     const btnItems: FlexItem[] = []
+    btnItems.push(this.addButtonItem(btnRow, "Area10Button", "10 m²", 6.2, 2.4, () => this._onSelectArea.invoke(10)))
     btnItems.push(this.addButtonItem(btnRow, "Area15Button", "15 m²", 6.2, 2.4, () => this._onSelectArea.invoke(15)))
     btnItems.push(this.addButtonItem(btnRow, "Area20Button", "20 m²", 6.2, 2.4, () => this._onSelectArea.invoke(20)))
-    btnItems.push(this.addButtonItem(btnRow, "Area30Button", "30 m²", 6.2, 2.4, () => this._onSelectArea.invoke(30)))
     btnItems.push(this.addButtonItem(btnRow, "ResetRoomButton", "Reset", 6.2, 2.4, () => this._onResetRoom.invoke()))
     btnFlex.addItems(btnItems)
 

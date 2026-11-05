@@ -171,6 +171,25 @@ export class FelicitaState {
     return Object.keys(this.hotspots).length
   }
 
+  /** Emergency lighting standard target lumens: 10 m² -> 400 lm, 15 m² -> 600 lm, 20 m² -> 800 lm */
+  public recommendedLumens(): number {
+    return this.roomAreaSqM * 40
+  }
+
+  /** Percentage of target illumination achieved for the selected room area */
+  public coveragePercent(): number {
+    const target = this.recommendedLumens()
+    if (target <= 0) return 0
+    return Math.min(100, Math.round((this.totalLumens() / target) * 100))
+  }
+
+  /** Light distribution radius scaling factor based on room dimensions */
+  public zoneRadiusScale(): number {
+    if (this.roomAreaSqM <= 10) return 0.72
+    if (this.roomAreaSqM <= 15) return 0.88
+    return 1.05 // 20 m²
+  }
+
   public reset(): void {
     this.heldLampId = null
     this.storeCardOpen = false
