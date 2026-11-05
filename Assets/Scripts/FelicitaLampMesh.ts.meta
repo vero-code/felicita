@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/9762528e-4773-4abd-b2bf-591afa3853f9>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e2c14d15-90dd-4cf3-8566-48b18b5af942
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e2c14d15-90dd-4cf3-8566-48b18b5af942
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 26e970fa-d2a9-46a2-9a93-e5644609fe49
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/26e970fa-d2a9-46a2-9a93-e5644609fe49>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 04a6843c-6d92-4202-be7c-7177d92064e4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    lampKind: false
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      lampKind: big_blue
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">FelicitaLampMesh – Emergency battery lamp geometry</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input Asset.Material material {"hint":"Vertex color material from SimpleVertexBaseColor.lspkg"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input string lampKind = "big_blue" {"hint":"Which emergency lamp model to construct", "widget":"combobox", "values":[{"label":"Big Blue Lamp (400 lm)", "value":"big_blue"}, {"label":"White Handle Lamp (400 lm)", "value":"white_handle"}, {"label":"Flashlight (250 lm)", "value":"flashlight"}, {"label":"Candle (150 lm)", "value":"candle"}]}'
+    - '// @ui {"widget":"group_end"}'

@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/778b79a3-7042-4590-95cf-ed489b29ba2f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 161245a0-9701-4059-b50d-c89926e6a84e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 161245a0-9701-4059-b50d-c89926e6a84e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 756f3ac8-b73d-4b01-9ede-9a7e9bb7d2eb
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/756f3ac8-b73d-4b01-9ede-9a7e9bb7d2eb>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 6c4eeef8-57e1-4f8c-8036-19c983524b3b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    accentTextColor: false
+    headerTitle: false
+    panelHeightCm: false
+    panelWidthCm: false
+    primaryTextColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - panelWidthCm: !<float> 32.000000
+      panelHeightCm: 11.500000
+      headerTitle: Felicita — Spatial Light Planner
+      primaryTextColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      accentTextColor: !<Vec4> {x: 0.550000, y: 0.920000, z: 1.000000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">FelicitaStatusHudUI – Room light status & area selector</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float panelWidthCm = 32 {"hint":"Width of the Room Light Status HUD panel in centimeters", "widget":"slider", "min":24, "max":42, "step":1}'
+    - '// @input float panelHeightCm = 11.5 {"hint":"Height of the Room Light Status HUD panel in centimeters", "widget":"slider", "min":9, "max":18, "step":0.5}'
+    - '// @input string headerTitle = "Felicita — Spatial Light Planner" {"hint":"Header title shown on the Room Light Status HUD"}'
+    - '// @input vec4 primaryTextColor = "{1.0, 1.0, 1.0, 1.0}" {"hint":"Primary text color (bright white for additive display)", "widget":"color"}'
+    - '// @input vec4 accentTextColor = "{0.55, 0.92, 1.0, 1.0}" {"hint":"Accent text color for lumen counter readout", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/f6b2d930-cb2c-4e2d-95ae-b7a2d14b9e28>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 828f744d-4782-49fd-b341-d14ad6016fb7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/828f744d-4782-49fd-b341-d14ad6016fb7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 6448b64f-f184-4ad2-8751-a3b3eeb3ad92
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    isDarkCorner: false
+    lightZoneRadiusCm: false
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      isDarkCorner: false
+      lightZoneRadiusCm: !<float> 12.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">FelicitaHotspotZoneMesh – Hotspot dot, highlight & light zone</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input Asset.Material material {"hint":"Vertex color material from SimpleVertexBaseColor.lspkg"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input bool isDarkCorner {"hint":"True if this marker is the distant unlit corner marker rather than a surface lamp hotspot"}'
+    - '// @input float lightZoneRadiusCm = 12 {"hint":"Expanded light coverage zone radius in cm (stand-in scaled from 1.5m - 3.0m)", "widget":"slider", "min":6, "max":18, "step":0.5}'
+    - '// @ui {"widget":"group_end"}'

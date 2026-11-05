@@ -1,0 +1,115 @@
+- !<AssetImportMetadata/37290c9d-256a-4d84-b737-2839a733a86c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a2d1cedd-6b2f-409b-992c-f930bb06a778
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a2d1cedd-6b2f-409b-992c-f930bb06a778
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 72beeb3e-3f92-4a73-b1ea-7b6bf3c998bf
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/72beeb3e-3f92-4a73-b1ea-7b6bf3c998bf>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: f2738ec9-9fff-41f4-9c8a-630c956350e8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bigBlueLumens: false
+    darkCornerMarker: false
+    debugColliders: false
+    defaultRoomAreaSqM: false
+    emergencyStore: false
+    gazeConeCosine: false
+    hotspotChairSide: false
+    hotspotFloorFront: false
+    hotspotShelfEdge: false
+    hotspotTableCenter: false
+    lampBigBlue: false
+    lampCandle: false
+    lampFlashlight: false
+    lampWhiteHandle: false
+    roomChair: false
+    roomFrame: false
+    roomShelf: false
+    roomTable: false
+    snapDistanceCm: false
+    statusHud: false
+    whiteHandleLumens: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - statusHud: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      emergencyStore: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      roomTable: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      roomChair: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      roomShelf: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      roomFrame: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      lampBigBlue: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
+      lampWhiteHandle: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
+      lampFlashlight: !<MappingBased.AssignableType_9> 00000000-0000-0000-0000-000000000000
+      lampCandle: !<MappingBased.AssignableType_10> 00000000-0000-0000-0000-000000000000
+      hotspotTableCenter: !<MappingBased.AssignableType_11> 00000000-0000-0000-0000-000000000000
+      hotspotShelfEdge: !<MappingBased.AssignableType_12> 00000000-0000-0000-0000-000000000000
+      hotspotChairSide: !<MappingBased.AssignableType_13> 00000000-0000-0000-0000-000000000000
+      hotspotFloorFront: !<MappingBased.AssignableType_14> 00000000-0000-0000-0000-000000000000
+      darkCornerMarker: !<MappingBased.AssignableType_15> 00000000-0000-0000-0000-000000000000
+      defaultRoomAreaSqM: !<float> 20.000000
+      snapDistanceCm: !<float> 32.000000
+      bigBlueLumens: !<float> 400.000000
+      whiteHandleLumens: !<float> 400.000000
+      gazeConeCosine: 0.650000
+      debugColliders: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">FelicitaMain – Spatial Light Planner Orchestrator</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">References</span>"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input AssignableType_1 statusHud {"hint":"Floating Room Light Status HUD UI module"}'
+    - '// @input AssignableType_2 emergencyStore {"hint":"Compact floating Emergency Store Card UI module (starts hidden)"}'
+    - '// @input AssignableType_3 roomTable {"hint":"Simulated room table furniture mesh"}'
+    - '// @input AssignableType_4 roomChair {"hint":"Simulated room chair furniture mesh"}'
+    - '// @input AssignableType_5 roomShelf {"hint":"Simulated room shelf furniture mesh"}'
+    - '// @input AssignableType_6 roomFrame {"hint":"Simulated room perimeter floor/wall frame mesh"}'
+    - '// @input AssignableType_7 lampBigBlue {"hint":"Big Blue Lamp (400 lm) on table"}'
+    - '// @input AssignableType_8 lampWhiteHandle {"hint":"White Lamp with Handle (400 lm) on shelf"}'
+    - '// @input AssignableType_9 lampFlashlight {"hint":"Emergency Flashlight (250 lm) on table"}'
+    - '// @input AssignableType_10 lampCandle {"hint":"LED Emergency Candle (150 lm) on shelf"}'
+    - '// @input AssignableType_11 hotspotTableCenter {"hint":"Target placement hotspot on table center"}'
+    - '// @input AssignableType_12 hotspotShelfEdge {"hint":"Target placement hotspot on shelf front edge"}'
+    - '// @input AssignableType_13 hotspotChairSide {"hint":"Target placement hotspot near chair side"}'
+    - '// @input AssignableType_14 hotspotFloorFront {"hint":"Target placement hotspot on lower floor front"}'
+    - '// @input AssignableType_15 darkCornerMarker {"hint":"Distant unlit corner interactive marker"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float defaultRoomAreaSqM = 20 {"hint":"Default room area in square meters shown in the status readout", "widget":"slider", "min":10, "max":40, "step":5}'
+    - '// @input float snapDistanceCm = 32 {"hint":"Maximum distance in centimeters for snapping a dragged lamp onto a surface hotspot", "widget":"slider", "min":8, "max":45, "step":1}'
+    - '// @input float bigBlueLumens = 400 {"hint":"Lumen rating for the Big Blue Lamp", "widget":"slider", "min":100, "max":800, "step":50}'
+    - '// @input float whiteHandleLumens = 400 {"hint":"Lumen rating for the White Handle Lamp", "widget":"slider", "min":100, "max":800, "step":50}'
+    - '// @input float gazeConeCosine = 0.65 {"hint":"Camera gaze cosine threshold for revealing the unlit dark corner marker with empty hands", "widget":"slider", "min":0.3, "max":0.95, "step":0.05}'
+    - '// @input bool debugColliders {"hint":"Enable wireframe rendering on all Physics.ColliderComponents for hit-zone debugging"}'
+    - '// @ui {"widget":"group_end"}'

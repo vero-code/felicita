@@ -4,6 +4,9 @@
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> f5d74682-203a-4970-81ea-9fa7b88c96bb
+    - !<own> 13cb9a9b-3e95-4d63-a7a8-0548aa899a60
+    - !<own> f9e488e3-b1a9-426a-831b-19d2149683c9
+    - !<own> 8e389a36-6cff-4b94-a118-38781696db1b
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -234,6 +237,24 @@
     []
   Components:
     []
+- !<ScriptComponent/08444822-87fb-401f-b7c7-092ac316b3e3>
+  PrefabRemaps:
+    []
+  Name: FelicitaRoomFurnitureMesh
+  Enabled: true
+  ScriptAsset: !<reference> 742dfcac-a8e0-437e-9aab-fec739223829
+  ScriptInputsDefault:
+    primaryColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      furnitureKind: room_frame
+      primaryColor: !<Vec4> {x: 0.340000, y: 0.250000, z: 0.180000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/0847d2bb-a13f-4c4a-a404-169f67308f6f>
   PrefabRemaps:
     []
@@ -364,6 +385,40 @@
     - !<own> 05147ea1-cb6b-4629-9484-199a4aa4d92a
   Components:
     []
+- !<SceneObject/0b67b0a0-5f00-4d6f-bce0-ae61001483d1>
+  PrefabRemaps:
+    []
+  Name: StatusHud
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 22.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d918a45b-45f2-43f0-b233-a049f4281696
+- !<SceneObject/0b8c39de-dcd0-4d59-9ce9-cb2e869c5b71>
+  PrefabRemaps:
+    []
+  Name: Hotspots
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 590c707e-ef5d-4825-a785-2b9d78f0bbc6
+    - !<own> 65462426-89e8-43ea-b152-8ed95812e2f7
+    - !<own> 33ae853c-a9a8-4d27-b3f7-270831280b30
+    - !<own> 0fc7a5c8-4792-4462-a729-b43d58e831fa
+    - !<own> 2fc29ada-f197-4ecf-b3ff-9573965f9c00
+  Components:
+    []
 - !<SceneObject/0c355300-e635-47c1-a8c3-5ddef30b8824>
   PrefabRemaps:
     []
@@ -424,6 +479,21 @@
     - !<own> 9e373d68-993f-4c8f-83a0-6644f1d9fefd
   Components:
     []
+- !<SceneObject/0fc7a5c8-4792-4462-a729-b43d58e831fa>
+  PrefabRemaps:
+    []
+  Name: Hotspot_FloorFront
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 8.000000, y: -19.500000, z: -105.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 46637544-ac9d-4926-b2b4-108492eaec69
 - !<SceneObject/10f60da2-2196-40ad-9e72-8a6bc7e86f35>
   PrefabRemaps:
     []
@@ -496,6 +566,40 @@
     - !<own> a6af4948-9adc-4052-ae22-db902dd2764e
   Components:
     []
+- !<SceneObject/13cb9a9b-3e95-4d63-a7a8-0548aa899a60>
+  PrefabRemaps:
+    []
+  Name: Felicita
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> ecda4e5f-8794-4b65-9f88-5d47bb9b556a
+    - !<own> 8ede2b64-a786-43ef-9c4f-00a7ff9fccbf
+    - !<own> 64d0612d-5d4e-4acc-ab1b-d74004d12299
+    - !<own> 0b8c39de-dcd0-4d59-9ce9-cb2e869c5b71
+    - !<own> e1291a2d-230b-4be6-b266-2ecfa7f9517f
+  Components:
+    []
+- !<SceneObject/1591adef-2236-4760-af9e-6c407e9cb1ac>
+  PrefabRemaps:
+    []
+  Name: Lamp_WhiteHandle
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 10.000000, y: 6.000000, z: -113.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5591d228-5f8b-4685-8132-565dd3152ad2
 - !<SceneObject/181c239f-175e-4912-94fc-d37a2599b2d6>
   PrefabRemaps:
     []
@@ -606,6 +710,22 @@
     - !<own> d9071294-12e8-425f-98f1-bf308a02639e
   Components:
     []
+- !<ScriptComponent/267eebfe-bd58-4684-854c-327f4ce23eeb>
+  PrefabRemaps:
+    []
+  Name: MessagingBridge
+  Enabled: true
+  ScriptAsset: !<reference> 9aa407db-2872-4afc-a162-cf7faf2a0f29
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/275aeb4d-77ac-4b1b-811e-907652542110>
   PrefabRemaps:
     []
@@ -708,6 +828,53 @@
     - !<own> a7da4af4-3d84-4acd-a31e-920a56b4c5c8
   Components:
     []
+- !<SceneObject/2fc29ada-f197-4ecf-b3ff-9573965f9c00>
+  PrefabRemaps:
+    []
+  Name: DarkCornerMarker
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -18.000000, y: 8.000000, z: -112.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f04f7cad-7a60-4093-aa39-c45bec0b26d2
+- !<ScriptComponent/31e48108-1991-4664-a6ad-88a2b52754e2>
+  PrefabRemaps:
+    []
+  Name: FelicitaLampMesh
+  Enabled: true
+  ScriptAsset: !<reference> e2c14d15-90dd-4cf3-8566-48b18b5af942
+  ScriptInputsDefault:
+    lampKind: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      lampKind: big_blue
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/328651fa-f66f-44f8-aafa-aa1e59381420>
+  PrefabRemaps:
+    []
+  Name: RoomChair
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -18.000000, y: -18.000000, z: -114.000000}
+    Rotation: {x: 0.000000, y: 22.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6238df7f-4645-480b-a46f-0c21721332b3
 - !<RenderMeshVisual/335c5f8b-2917-49e8-8af5-220696e9bc09>
   PrefabRemaps:
     []
@@ -728,6 +895,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/33ae853c-a9a8-4d27-b3f7-270831280b30>
+  PrefabRemaps:
+    []
+  Name: Hotspot_ChairSide
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -16.000000, y: -11.500000, z: -108.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bf7a037e-efd6-40b9-9d6d-e6e7114e3b56
 - !<SceneObject/33c3b818-8a2f-4298-8659-2ea691615666>
   PrefabRemaps:
     []
@@ -779,6 +961,21 @@
     - !<own> cec12eef-3a06-4b4a-b0ba-3de212ca34dc
   Components:
     []
+- !<SceneObject/36fb7aa4-3eaa-4b6f-acca-bdbc31e0acb6>
+  PrefabRemaps:
+    []
+  Name: Lamp_BigBlue
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -9.000000, y: -7.800000, z: -108.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 31e48108-1991-4664-a6ad-88a2b52754e2
 - !<SceneObject/38562bff-09c5-4232-bff1-7ea62a1e7ec5>
   PrefabRemaps:
     []
@@ -869,6 +1066,24 @@
     []
   Components:
     - !<own> 1f969daa-5809-4500-b314-98d91ccba131
+- !<ScriptComponent/43bbdd94-1fa7-4783-bfa3-8af550d537a1>
+  PrefabRemaps:
+    []
+  Name: FelicitaRoomFurnitureMesh
+  Enabled: true
+  ScriptAsset: !<reference> 742dfcac-a8e0-437e-9aab-fec739223829
+  ScriptInputsDefault:
+    primaryColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      furnitureKind: shelf
+      primaryColor: !<Vec4> {x: 0.340000, y: 0.250000, z: 0.180000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/44097eaf-01da-45fb-8973-3bd8172618de>
   PrefabRemaps:
     []
@@ -884,6 +1099,39 @@
     []
   Components:
     []
+- !<SceneObject/4451a77a-a754-41f2-a401-f2fccd59ebbf>
+  PrefabRemaps:
+    []
+  Name: RoomTable
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.000000, y: -14.000000, z: -110.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7324264d-b77b-4358-ac31-9d5359e192f4
+- !<ScriptComponent/46637544-ac9d-4926-b2b4-108492eaec69>
+  PrefabRemaps:
+    []
+  Name: FelicitaHotspotZoneMesh
+  Enabled: true
+  ScriptAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  ScriptInputsDefault:
+    isDarkCorner: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      isDarkCorner: false
+      lightZoneRadiusCm: !<float> 14.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/46b79537-a269-46f1-9483-500d7a4170d6>
   PrefabRemaps:
     []
@@ -974,6 +1222,40 @@
     - !<own> 46b79537-a269-46f1-9483-500d7a4170d6
   Components:
     []
+- !<ScriptComponent/5591d228-5f8b-4685-8132-565dd3152ad2>
+  PrefabRemaps:
+    []
+  Name: FelicitaLampMesh
+  Enabled: true
+  ScriptAsset: !<reference> e2c14d15-90dd-4cf3-8566-48b18b5af942
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      lampKind: white_handle
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/56599c00-c6f8-42d1-a207-f0dd7bde0f40>
+  PrefabRemaps:
+    []
+  Name: FelicitaLampMesh
+  Enabled: true
+  ScriptAsset: !<reference> e2c14d15-90dd-4cf3-8566-48b18b5af942
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      lampKind: flashlight
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/58ef319f-850e-40dd-8295-e6dc36ab4854>
   PrefabRemaps:
     []
@@ -989,6 +1271,21 @@
     - !<own> bf2095b6-c6f8-48c8-b840-e0a6cec0dc99
   Components:
     []
+- !<SceneObject/590c707e-ef5d-4825-a785-2b9d78f0bbc6>
+  PrefabRemaps:
+    []
+  Name: Hotspot_TableCenter
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.000000, y: -7.800000, z: -105.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b286a6f3-3744-4bae-ad28-45ccbd6c8390
 - !<ScriptComponent/5f153ad7-2baa-4fd9-a298-0dcfad86da3b>
   PrefabRemaps:
     []
@@ -1010,6 +1307,24 @@
       mouseTargetingMode: !<float> 2.000000
       moveInDepth: false
       moveInDepthAmount: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/6238df7f-4645-480b-a46f-0c21721332b3>
+  PrefabRemaps:
+    []
+  Name: FelicitaRoomFurnitureMesh
+  Enabled: true
+  ScriptAsset: !<reference> 742dfcac-a8e0-437e-9aab-fec739223829
+  ScriptInputsDefault:
+    primaryColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      furnitureKind: chair
+      primaryColor: !<Vec4> {x: 0.340000, y: 0.250000, z: 0.180000, w: 1.000000}
   ScriptTypes:
     "":
       {}
@@ -1037,6 +1352,24 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/64d0612d-5d4e-4acc-ab1b-d74004d12299>
+  PrefabRemaps:
+    []
+  Name: Lamps
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 36fb7aa4-3eaa-4b6f-acca-bdbc31e0acb6
+    - !<own> c247ed6c-17f4-4446-90c4-614389610218
+    - !<own> 1591adef-2236-4760-af9e-6c407e9cb1ac
+    - !<own> 75424e77-b34a-4da2-86a1-a0dbdde89f71
+  Components:
+    []
 - !<ScriptComponent/64f27597-c99d-4c59-8a08-05459cc2258d>
   PrefabRemaps:
     []
@@ -1139,6 +1472,21 @@
     - !<own> 80574bd1-697b-4bb5-b9ce-13b340146d82
   Components:
     - !<own> ccf4d3bc-d3c2-4580-b9c5-62f164ef7eef
+- !<SceneObject/65462426-89e8-43ea-b152-8ed95812e2f7>
+  PrefabRemaps:
+    []
+  Name: Hotspot_ShelfEdge
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 14.000000, y: 6.000000, z: -109.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c4659531-39de-4148-9f75-e8e55ff890ff
 - !<SceneObject/6a7a67db-5675-49bb-8f31-ba0588e3cffc>
   PrefabRemaps:
     []
@@ -1244,6 +1592,66 @@
     - !<own> 879ce45b-bd5e-40ff-a3fe-d821523427e4
   Components:
     - !<own> 64f27597-c99d-4c59-8a08-05459cc2258d
+- !<ScriptComponent/7324264d-b77b-4358-ac31-9d5359e192f4>
+  PrefabRemaps:
+    []
+  Name: FelicitaRoomFurnitureMesh
+  Enabled: true
+  ScriptAsset: !<reference> 742dfcac-a8e0-437e-9aab-fec739223829
+  ScriptInputsDefault:
+    furnitureKind: true
+    primaryColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      furnitureKind: table
+      primaryColor: !<Vec4> {x: 0.340000, y: 0.250000, z: 0.180000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/74a9424e-95b8-41ae-b056-6bbcfc00cad9>
+  PrefabRemaps:
+    []
+  Name: FelicitaMain
+  Enabled: true
+  ScriptAsset: !<reference> a2d1cedd-6b2f-409b-992c-f930bb06a778
+  ScriptInputsDefault:
+    defaultRoomAreaSqM: true
+    snapDistanceCm: true
+    bigBlueLumens: true
+    whiteHandleLumens: true
+    gazeConeCosine: true
+    debugColliders: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      statusHud: !<MappingBased.AssignableType_1> d918a45b-45f2-43f0-b233-a049f4281696
+      emergencyStore: !<MappingBased.AssignableType_2> a440164f-017b-4094-8282-96b6daf8d081
+      roomTable: !<MappingBased.AssignableType_3> 7324264d-b77b-4358-ac31-9d5359e192f4
+      roomChair: !<MappingBased.AssignableType_4> 6238df7f-4645-480b-a46f-0c21721332b3
+      roomShelf: !<MappingBased.AssignableType_5> 43bbdd94-1fa7-4783-bfa3-8af550d537a1
+      roomFrame: !<MappingBased.AssignableType_6> 08444822-87fb-401f-b7c7-092ac316b3e3
+      lampBigBlue: !<MappingBased.AssignableType_7> 31e48108-1991-4664-a6ad-88a2b52754e2
+      lampWhiteHandle: !<MappingBased.AssignableType_8> 5591d228-5f8b-4685-8132-565dd3152ad2
+      lampFlashlight: !<MappingBased.AssignableType_9> 56599c00-c6f8-42d1-a207-f0dd7bde0f40
+      lampCandle: !<MappingBased.AssignableType_10> db831903-6bf7-4b87-86ea-d47fe0415bd1
+      hotspotTableCenter: !<MappingBased.AssignableType_11> b286a6f3-3744-4bae-ad28-45ccbd6c8390
+      hotspotShelfEdge: !<MappingBased.AssignableType_12> c4659531-39de-4148-9f75-e8e55ff890ff
+      hotspotChairSide: !<MappingBased.AssignableType_13> bf7a037e-efd6-40b9-9d6d-e6e7114e3b56
+      hotspotFloorFront: !<MappingBased.AssignableType_14> 46637544-ac9d-4926-b2b4-108492eaec69
+      darkCornerMarker: !<MappingBased.AssignableType_15> f04f7cad-7a60-4093-aa39-c45bec0b26d2
+      defaultRoomAreaSqM: !<float> 20.000000
+      snapDistanceCm: !<float> 32.000000
+      bigBlueLumens: !<float> 400.000000
+      whiteHandleLumens: !<float> 400.000000
+      gazeConeCosine: 0.650000
+      debugColliders: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/74d13517-1dbf-42e6-b536-27afc4909c65>
   PrefabRemaps:
     []
@@ -1259,6 +1667,21 @@
     - !<own> f666b5eb-6a03-4db0-9d84-5b34c6e8905a
   Components:
     []
+- !<SceneObject/75424e77-b34a-4da2-86a1-a0dbdde89f71>
+  PrefabRemaps:
+    []
+  Name: Lamp_Candle
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 18.000000, y: 6.000000, z: -113.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> db831903-6bf7-4b87-86ea-d47fe0415bd1
 - !<SceneObject/7605c62c-4c45-4fc0-b364-2d76d26f2b82>
   PrefabRemaps:
     []
@@ -1529,6 +1952,39 @@
     - !<own> b859e31c-4c76-46bd-bd6a-042228e52728
   Components:
     []
+- !<SceneObject/8e389a36-6cff-4b94-a118-38781696db1b>
+  PrefabRemaps:
+    []
+  Name: LEAF Plugin Bridge
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 267eebfe-bd58-4684-854c-327f4ce23eeb
+- !<SceneObject/8ede2b64-a786-43ef-9c4f-00a7ff9fccbf>
+  PrefabRemaps:
+    []
+  Name: RoomEnvironment
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d9f88570-0b96-4a5f-91f8-b152bc89086a
+    - !<own> 4451a77a-a754-41f2-a401-f2fccd59ebbf
+    - !<own> 328651fa-f66f-44f8-aafa-aa1e59381420
+    - !<own> a7e2bb21-bac7-4bd3-97df-58c8390ad330
+  Components:
+    []
 - !<SceneObject/8fe2a532-9bf3-4cde-b598-04ce5470718d>
   PrefabRemaps:
     []
@@ -1636,6 +2092,30 @@
     - !<own> 46ea93d6-d161-4453-9064-6ac11e1d6523
   Components:
     []
+- !<ScriptComponent/a440164f-017b-4094-8282-96b6daf8d081>
+  PrefabRemaps:
+    []
+  Name: FelicitaEmergencyStoreUI
+  Enabled: true
+  ScriptAsset: !<reference> 6feb67c9-9508-4fd9-94b4-b94d227164a2
+  ScriptInputsDefault:
+    cardWidthCm: true
+    cardHeightCm: true
+    headlineText: true
+    productDescription: true
+    headerColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      cardWidthCm: !<float> 30.000000
+      cardHeightCm: !<float> 20.000000
+      headlineText: "No lamp? Order delivery today"
+      productDescription: Express Battery Lantern (+400 lm) · 15 min courier
+      headerColor: !<Vec4> {x: 1.000000, y: 0.920000, z: 0.600000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/a4b1ce71-4840-4493-bc52-58f3c13933e1>
   PrefabRemaps:
     []
@@ -1730,6 +2210,21 @@
     - !<own> 77a79970-63f4-4c7c-984a-539d2ef0c92a
   Components:
     []
+- !<SceneObject/a7e2bb21-bac7-4bd3-97df-58c8390ad330>
+  PrefabRemaps:
+    []
+  Name: RoomShelf
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 14.000000, y: 4.000000, z: -115.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 43bbdd94-1fa7-4783-bfa3-8af550d537a1
 - !<SceneObject/a8039e90-20cf-45e3-9ea8-61f0eaf5d6d0>
   PrefabRemaps:
     []
@@ -1790,6 +2285,24 @@
     - !<own> 3de2c7ea-1525-465a-9056-68565a4014a7
   Components:
     []
+- !<ScriptComponent/b286a6f3-3744-4bae-ad28-45ccbd6c8390>
+  PrefabRemaps:
+    []
+  Name: FelicitaHotspotZoneMesh
+  Enabled: true
+  ScriptAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  ScriptInputsDefault:
+    isDarkCorner: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      isDarkCorner: false
+      lightZoneRadiusCm: !<float> 13.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/b463be13-dddb-4b36-a3dd-c344bd3d8ef5>
   PrefabRemaps:
     []
@@ -1895,6 +2408,22 @@
     - !<own> 0911db7e-7b90-4790-bab3-9ac99e936696
   Components:
     []
+- !<ScriptComponent/bb9011ea-f23e-461b-b73b-40769db5d50e>
+  PrefabRemaps:
+    []
+  Name: LeafIndex
+  Enabled: true
+  ScriptAsset: !<reference> 01c4109c-8e64-413d-9dbe-24e3c1982868
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/bb9036be-541f-49e7-9554-c297d354da21>
   PrefabRemaps:
     []
@@ -1955,6 +2484,74 @@
     []
   Components:
     []
+- !<ScriptComponent/bf7a037e-efd6-40b9-9d6d-e6e7114e3b56>
+  PrefabRemaps:
+    []
+  Name: FelicitaHotspotZoneMesh
+  Enabled: true
+  ScriptAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  ScriptInputsDefault:
+    isDarkCorner: true
+    lightZoneRadiusCm: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      isDarkCorner: false
+      lightZoneRadiusCm: !<float> 12.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c0ddb7c8-c575-4a55-b563-4d1be2121a22>
+  PrefabRemaps:
+    []
+  Name: EmergencyStoreCard
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -12.000000, y: 4.000000, z: -98.000000}
+    Rotation: {x: 0.000000, y: 12.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a440164f-017b-4094-8282-96b6daf8d081
+- !<SceneObject/c247ed6c-17f4-4446-90c4-614389610218>
+  PrefabRemaps:
+    []
+  Name: Lamp_Flashlight
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.000000, y: -7.800000, z: -108.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 56599c00-c6f8-42d1-a207-f0dd7bde0f40
+- !<ScriptComponent/c4659531-39de-4148-9f75-e8e55ff890ff>
+  PrefabRemaps:
+    []
+  Name: FelicitaHotspotZoneMesh
+  Enabled: true
+  ScriptAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  ScriptInputsDefault:
+    isDarkCorner: true
+    lightZoneRadiusCm: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      isDarkCorner: false
+      lightZoneRadiusCm: !<float> 12.000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/c8e031d3-a8a1-468a-a419-427f8556de4c>
   PrefabRemaps:
     []
@@ -2178,6 +2775,45 @@
     - !<own> 74d13517-1dbf-42e6-b536-27afc4909c65
   Components:
     []
+- !<ScriptComponent/d918a45b-45f2-43f0-b233-a049f4281696>
+  PrefabRemaps:
+    []
+  Name: FelicitaStatusHudUI
+  Enabled: true
+  ScriptAsset: !<reference> 161245a0-9701-4059-b50d-c89926e6a84e
+  ScriptInputsDefault:
+    panelWidthCm: true
+    panelHeightCm: true
+    headerTitle: true
+    primaryTextColor: true
+    accentTextColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      panelWidthCm: !<float> 32.000000
+      panelHeightCm: 11.500000
+      headerTitle: Felicita — Spatial Light Planner
+      primaryTextColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      accentTextColor: !<Vec4> {x: 0.550000, y: 0.920000, z: 1.000000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/d9f88570-0b96-4a5f-91f8-b152bc89086a>
+  PrefabRemaps:
+    []
+  Name: RoomFrame
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -4.000000, z: -112.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 08444822-87fb-401f-b7c7-092ac316b3e3
 - !<SceneObject/da214b27-43a7-4db4-90fd-993798e859d9>
   PrefabRemaps:
     []
@@ -2208,6 +2844,23 @@
     - !<own> f74a6bbb-4fba-4d8b-9b4e-64dd1c3e9ac3
   Components:
     []
+- !<ScriptComponent/db831903-6bf7-4b87-86ea-d47fe0415bd1>
+  PrefabRemaps:
+    []
+  Name: FelicitaLampMesh
+  Enabled: true
+  ScriptAsset: !<reference> e2c14d15-90dd-4cf3-8566-48b18b5af942
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      lampKind: candle
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/dcc36a33-e23d-48f3-8e96-f9c9fd3cd030>
   PrefabRemaps:
     []
@@ -2258,6 +2911,21 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/e1291a2d-230b-4be6-b266-2ecfa7f9517f>
+  PrefabRemaps:
+    []
+  Name: FelicitaController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 74a9424e-95b8-41ae-b056-6bbcfc00cad9
 - !<SceneObject/e2ba526d-75d1-466b-86a5-9cd7c42dca84>
   PrefabRemaps:
     []
@@ -2351,6 +3019,22 @@
     Fingers_length: 0.000000
     Thumb_inflate: 0.000000
     Thumb_length: 0.000000
+- !<SceneObject/ecda4e5f-8794-4b65-9f88-5d47bb9b556a>
+  PrefabRemaps:
+    []
+  Name: UI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 0b67b0a0-5f00-4d6f-bce0-ae61001483d1
+    - !<own> c0ddb7c8-c575-4a55-b563-4d1be2121a22
+  Components:
+    []
 - !<SceneObject/f0394c5d-4c44-4c65-a77c-e1c7e05ca905>
   PrefabRemaps:
     []
@@ -2366,6 +3050,24 @@
     []
   Components:
     []
+- !<ScriptComponent/f04f7cad-7a60-4093-aa39-c45bec0b26d2>
+  PrefabRemaps:
+    []
+  Name: FelicitaHotspotZoneMesh
+  Enabled: true
+  ScriptAsset: !<reference> 609cbd77-697c-4fdf-a4a3-bbc3f85918d2
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      isDarkCorner: true
+      lightZoneRadiusCm: !<float> 10.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/f36287fd-ed56-442d-ba20-78f9ef6f3502>
   PrefabRemaps:
     []
@@ -2573,6 +3275,21 @@
     - !<own> a7526b33-fca3-4f28-8e32-b0e9aa13c4b4
   Components:
     []
+- !<SceneObject/f9e488e3-b1a9-426a-831b-19d2149683c9>
+  PrefabRemaps:
+    []
+  Name: LeafIndex
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> bb9011ea-f23e-461b-b73b-40769db5d50e
 - !<SceneObject/fcc185fc-4e88-4e9e-9c71-40bd83b1b0ed>
   PrefabRemaps:
     []

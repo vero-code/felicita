@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/29dd365b-3497-4e5c-8a57-909c5926332b>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 6feb67c9-9508-4fd9-94b4-b94d227164a2
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 6feb67c9-9508-4fd9-94b4-b94d227164a2
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 22fca849-7206-4769-bc4a-4580d79d5ca5
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/22fca849-7206-4769-bc4a-4580d79d5ca5>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: afe09919-ab85-400d-9dd2-28757067b0cf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cardHeightCm: false
+    cardWidthCm: false
+    headerColor: false
+    headlineText: false
+    productDescription: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - cardWidthCm: !<float> 30.000000
+      cardHeightCm: !<float> 20.000000
+      headlineText: "No lamp? Order delivery today"
+      productDescription: Express Battery Lantern (+400 lm) · 15 min courier
+      headerColor: !<Vec4> {x: 1.000000, y: 0.920000, z: 0.600000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">FelicitaEmergencyStoreUI – Emergency lamp store card (30×20 cm)</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float cardWidthCm = 30 {"hint":"Width of the compact floating emergency store card in centimeters", "widget":"slider", "min":24, "max":38, "step":1}'
+    - '// @input float cardHeightCm = 20 {"hint":"Height of the compact floating emergency store card in centimeters", "widget":"slider", "min":16, "max":26, "step":1}'
+    - '// @input string headlineText = "No lamp? Order delivery today" {"hint":"Primary call-to-action title on the emergency store card"}'
+    - '// @input string productDescription = "Express Battery Lantern (+400 lm) · 15 min courier" {"hint":"Product description shown on the emergency store card"}'
+    - '// @input vec4 headerColor = "{1.0, 0.92, 0.60, 1.0}" {"hint":"Highlight color for the store card header", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'
