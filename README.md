@@ -1,6 +1,15 @@
 # Felicita — Spatial Light Planner for Snap SPECS 💡
 
+[![Platform](https://img.shields.io/badge/Platform-Snap%20SPECS%2027-000000?style=for-the-badge&logo=snapchat&logoColor=yellow)](https://developers.specs.com/)
+[![Lens Studio](https://img.shields.io/badge/Lens%20Studio-v5.23.2-FFFC00?style=for-the-badge&logo=snapchat&logoColor=black)](https://ar.snap.com/)
+[![LEAF Tests](https://img.shields.io/badge/LEAF%20Tests-5%2F5%20Passed-brightgreen?style=for-the-badge)](Assets/Scripts/LeafIndex.ts)
+
 An AR utility for **Snap SPECS** that helps plan emergency room lighting during a power outage. Built with **Lens Studio 5.23.2**, **Spectacles Interaction Kit (SIK)**, **Spectacles UI Kit**, and **LEAF**.
+
+---
+
+## 🎬 Demo Video
+[![Felicita — Spatial Light Planner Demo Video](https://img.youtube.com/vi/E3mq2rN1UN4/maxresdefault.jpg)](https://youtu.be/E3mq2rN1UN4)
 
 ---
 
