@@ -3,6 +3,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Snap%20SPECS%2027-000000?style=for-the-badge&logo=snapchat&logoColor=yellow)](https://developers.specs.com/)
 [![Lens Studio](https://img.shields.io/badge/Lens%20Studio-v5.23.2-FFFC00?style=for-the-badge&logo=snapchat&logoColor=black)](https://ar.snap.com/)
 [![LEAF Tests](https://img.shields.io/badge/LEAF%20Tests-5%2F5%20Passed-brightgreen?style=for-the-badge)](Assets/Scripts/LeafIndex.ts)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](Assets/Scripts/)
+[![CLAD](https://img.shields.io/badge/Built%20With-CLAD%20%2B%20MCP-blueviolet?style=for-the-badge)](devpost/design-brief.md)
 
 An AR utility for **Snap SPECS** that helps plan emergency room lighting during a power outage. Built with **Lens Studio 5.23.2**, **Spectacles Interaction Kit (SIK)**, **Spectacles UI Kit**, and **LEAF**.
 
@@ -57,6 +59,21 @@ During a blackout, walking around with a phone flashlight occupies one hand and 
   - Clicking **Order Lamp** adds `+400 lm` to the room's total illumination.
 - **Spatial Audio:**
   - Custom WAV sound cues (`LampPickup.wav`, `LampPlace.wav`, `StoreOpen.wav`) triggered on pickup, snap, and store actions.
+
+---
+
+## Tech Stack & Tools
+
+- **Platform & Engine:** [Lens Studio 5.23.2](https://ar.snap.com/download/v5-23-2) targeting **Snap SPECS 27** (`Perspective` Camera + `DeviceTracking` World mode)
+- **Language:** TypeScript (ES2021 component architecture extending `BaseScriptComponent`)
+- **Hand Tracking & Interaction:** **Spectacles Interaction Kit (SIK)** (`Interactable`, `InteractableManipulation`, `InteractorEvent`) for 6DoF pinch, grab, drag, and snap-to-surface physics
+- **Spatial UI:** **Spectacles UI Kit** (`Frame`, `BackPlate`, `FlexLayout`, `RectangleButton`) for world-space HUD and interactive emergency store card
+- **3D Modelling & Geometry:**
+  - **SPECS Text-to-3D AI Generator** for textured `.glb` emergency lamp models (`LampBigBlue`, `LampWhiteHandle`, `LampFlashlight`, `LampCandle`)
+  - **Runtime `MeshBuilder`** for dynamic concentric radial light coverage zones, pulsing target rings, and emissive glow cores
+- **Spatial Audio:** Custom 44.1 kHz WAV sound effects synthesized offline via Node.js algorithmic audio synthesis (`AudioComponent` in `LowLatency` mode)
+- **Automated QA & Testing:** **LEAF (`Leaf.lspkg` — Lens Evaluation & Automation Framework)** with `DefaultLeafInteractor` driving 5 end-to-end automated test scenarios
+- **Agentic Workflow:** Planned with the **Devpost Learn (`plan-lens`)** skill pack (`devpost/design-brief.md`) and built via **CLAD (Closed Loop Agentic Development)** + **Lens Studio MCP**
 
 ---
 
