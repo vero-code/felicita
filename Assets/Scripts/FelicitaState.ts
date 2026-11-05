@@ -39,7 +39,7 @@ export class FelicitaState {
       sceneName: "Lamp_BigBlue",
       displayName: "Big Blue Lamp",
       lumens: 400,
-      zoneRadiusCm: 13.5,
+      zoneRadiusCm: 34.0,
       placedHotspotId: null,
     },
     white_handle: {
@@ -47,7 +47,7 @@ export class FelicitaState {
       sceneName: "Lamp_WhiteHandle",
       displayName: "White Handle Lamp",
       lumens: 400,
-      zoneRadiusCm: 12.5,
+      zoneRadiusCm: 30.0,
       placedHotspotId: null,
     },
     flashlight: {
@@ -55,7 +55,7 @@ export class FelicitaState {
       sceneName: "Lamp_Flashlight",
       displayName: "Emergency Flashlight",
       lumens: 250,
-      zoneRadiusCm: 10.0,
+      zoneRadiusCm: 25.0,
       placedHotspotId: null,
     },
     candle: {
@@ -63,7 +63,7 @@ export class FelicitaState {
       sceneName: "Lamp_Candle",
       displayName: "LED Candle",
       lumens: 150,
-      zoneRadiusCm: 8.5,
+      zoneRadiusCm: 20.0,
       placedHotspotId: null,
     },
   }

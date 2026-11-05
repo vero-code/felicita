@@ -251,60 +251,64 @@ export class FelicitaLampMesh extends BaseScriptComponent {
 
     const mult = lit ? 1.0 : 0.65
 
+    const S = 2.1
+    const scaleProfile = (pts: [number, number][]): [number, number][] =>
+      pts.map(([r, y]) => [r * S, y * S])
+
     if (this.lampKind === "big_blue") {
       const blueBody: RGBA = [0.18 * mult, 0.52 * mult, 0.95 * mult, 1.0]
       const capCol: RGBA = [0.22 * mult, 0.28 * mult, 0.38 * mult, 1.0]
       let vi = 0
-      vi = buildLathe(bodyBuilder, [
+      vi = buildLathe(bodyBuilder, scaleProfile([
         [0.0, 0.0], [2.2, 0.0], [2.3, 0.8], [2.0, 2.8], [2.3, 3.2], [0.0, 3.2]
-      ], 20, blueBody, vi)
-      vi = buildLathe(bodyBuilder, [
+      ]), 20, blueBody, vi)
+      vi = buildLathe(bodyBuilder, scaleProfile([
         [0.0, 5.2], [2.2, 5.2], [1.6, 5.9], [0.0, 5.9]
-      ], 20, capCol, vi)
+      ]), 20, capCol, vi)
 
       const bulbCol: RGBA = lit ? [0.72, 0.96, 1.0, 1.0] : [0.42, 0.52, 0.62, 1.0]
-      buildLathe(glowBuilder, [
+      buildLathe(glowBuilder, scaleProfile([
         [1.7, 3.1], [1.85, 4.2], [1.7, 5.25]
-      ], 20, bulbCol, 0)
+      ]), 20, bulbCol, 0)
     } else if (this.lampKind === "white_handle") {
       const whiteBody: RGBA = [0.85 * mult, 0.88 * mult, 0.94 * mult, 1.0]
       let vi = 0
-      vi = buildLathe(bodyBuilder, [
+      vi = buildLathe(bodyBuilder, scaleProfile([
         [0.0, 0.0], [2.0, 0.0], [2.1, 2.4], [1.5, 2.8], [0.0, 2.8]
-      ], 20, whiteBody, vi)
+      ]), 20, whiteBody, vi)
       // Curved handle arch on top
       const arch: [number, number, number][] = []
       for (let k = 0; k <= 12; k++) {
         const a = (k / 12) * Math.PI
-        arch.push([Math.cos(a) * 1.5, 4.4 + Math.sin(a) * 1.4, 0])
+        arch.push([Math.cos(a) * 1.5 * S, (4.4 + Math.sin(a) * 1.4) * S, 0])
       }
-      vi = buildTube(bodyBuilder, arch, 0.24, 8, whiteBody, vi)
+      vi = buildTube(bodyBuilder, arch, 0.24 * S, 8, whiteBody, vi)
 
       const bulbCol: RGBA = lit ? [1.0, 0.95, 0.76, 1.0] : [0.55, 0.55, 0.58, 1.0]
-      buildLathe(glowBuilder, [
+      buildLathe(glowBuilder, scaleProfile([
         [1.4, 2.7], [1.8, 3.7], [1.2, 4.6], [0.0, 4.7]
-      ], 20, bulbCol, 0)
+      ]), 20, bulbCol, 0)
     } else if (this.lampKind === "flashlight") {
       const slateCol: RGBA = [0.35 * mult, 0.42 * mult, 0.52 * mult, 1.0]
-      buildLathe(bodyBuilder, [
+      buildLathe(bodyBuilder, scaleProfile([
         [0.0, 0.0], [1.1, 0.0], [1.1, 3.0], [1.85, 4.3], [0.0, 4.3]
-      ], 18, slateCol, 0)
+      ]), 18, slateCol, 0)
 
       const beamCol: RGBA = lit ? [0.95, 0.98, 0.78, 1.0] : [0.48, 0.50, 0.54, 1.0]
-      buildLathe(glowBuilder, [
+      buildLathe(glowBuilder, scaleProfile([
         [0.0, 4.3], [1.65, 4.35], [2.1, 5.4], [0.0, 5.4]
-      ], 18, beamCol, 0)
+      ]), 18, beamCol, 0)
     } else {
       // "candle"
       const waxCol: RGBA = [0.90 * mult, 0.86 * mult, 0.74 * mult, 1.0]
-      buildLathe(bodyBuilder, [
+      buildLathe(bodyBuilder, scaleProfile([
         [0.0, 0.0], [1.35, 0.0], [1.3, 3.4], [0.2, 3.5], [0.0, 3.5]
-      ], 18, waxCol, 0)
+      ]), 18, waxCol, 0)
 
       const flameCol: RGBA = lit ? [1.0, 0.80, 0.28, 1.0] : [0.55, 0.48, 0.38, 1.0]
-      buildLathe(glowBuilder, [
+      buildLathe(glowBuilder, scaleProfile([
         [0.0, 3.5], [0.55, 4.0], [0.35, 4.8], [0.0, 5.3]
-      ], 16, flameCol, 0)
+      ]), 16, flameCol, 0)
     }
 
     bodyRmv.mesh = bodyBuilder.getMesh()
@@ -316,7 +320,7 @@ export class FelicitaLampMesh extends BaseScriptComponent {
     bodyBuilder.updateMesh()
     glowBuilder.updateMesh()
 
-    // 3. Subtle low-contrast grey base dot (2.5 cm radius = 5 cm diameter)
+    // 3. Subtle low-contrast grey base dot (5.2 cm radius)
     let dotRmv = this.dotSO.getComponent("Component.RenderMeshVisual") as RenderMeshVisual | null
     if (!dotRmv) dotRmv = this.dotSO.createComponent("Component.RenderMeshVisual") as RenderMeshVisual
     const dotBuilder = new MeshBuilder([
@@ -327,7 +331,7 @@ export class FelicitaLampMesh extends BaseScriptComponent {
     dotBuilder.topology = MeshTopology.Triangles
     dotBuilder.indexType = MeshIndexType.UInt16
     buildLathe(dotBuilder, [
-      [0.0, -0.15], [2.5, -0.15], [2.5, 0.05], [0.0, 0.05]
+      [0.0, -0.25], [5.2, -0.25], [5.2, 0.15], [0.0, 0.15]
     ], 18, [0.46, 0.50, 0.56, 1.0], 0)
     dotRmv.mesh = dotBuilder.getMesh()
     if (this.material) dotRmv.mainMaterial = this.material

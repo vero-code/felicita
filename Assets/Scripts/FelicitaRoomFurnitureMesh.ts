@@ -127,51 +127,40 @@ export class FelicitaRoomFurnitureMesh extends BaseScriptComponent {
     const legCol: RGBA = [Math.max(0.12, baseR - 0.08), Math.max(0.10, baseG - 0.08), Math.max(0.10, baseB - 0.06), 1.0]
 
     if (this.furnitureKind === "table") {
-      // Tabletop: 22 cm wide (hw=11), 1.4 cm thick (hh=0.7), 12 cm deep (hd=6), top at y = +6.0 cm
-      vi = addBox(builder, indices, 0, 5.3, 0, 11.0, 0.7, 6.0, woodMain, vi)
-      vi = addBox(builder, indices, 0, 6.05, 0, 10.6, 0.12, 5.6, woodTrim, vi)
-      // 4 legs from y = -6 to y = +4.6
-      const legOffsets: [number, number][] = [[-9.5, -4.6], [9.5, -4.6], [-9.5, 4.6], [9.5, 4.6]]
+      // Room-scale Table matching Evening Room furniture scale: 68 cm wide (hw=34), 42 cm deep (hd=21)
+      // Tabletop top surface at local y = +18.0 cm; 4 clean legs reach floor at local y = -32.0 cm (50 cm total height)
+      vi = addBox(builder, indices, 0, 16.4, 0, 34.0, 1.6, 21.0, woodMain, vi)
+      vi = addBox(builder, indices, 0, 18.0, 0, 32.8, 0.25, 19.8, woodTrim, vi)
+      const legOffsets: [number, number][] = [[-29.5, -16.5], [29.5, -16.5], [-29.5, 16.5], [29.5, 16.5]]
       for (const [lx, lz] of legOffsets) {
-        vi = addBox(builder, indices, lx, -0.7, lz, 0.7, 5.3, 0.7, legCol, vi)
+        vi = addBox(builder, indices, lx, -8.6, lz, 2.0, 23.4, 2.0, legCol, vi)
       }
-      // Cross-stretcher bar
-      vi = addBox(builder, indices, 0, -3.5, 0, 9.2, 0.35, 0.4, legCol, vi)
     } else if (this.furnitureKind === "chair") {
       const chairMain: RGBA = [Math.min(1, 0.28 + b), Math.min(1, 0.32 + b), Math.min(1, 0.40 + b), 1.0]
       const chairTrim: RGBA = [Math.min(1, 0.38 + b), Math.min(1, 0.42 + b), Math.min(1, 0.52 + b), 1.0]
-      // Seat at y = 0 (8x1.0x8 cm)
-      vi = addBox(builder, indices, 0, 0, 0, 4.2, 0.5, 4.2, chairMain, vi)
-      // 4 legs down to y = -6
-      const legs: [number, number][] = [[-3.5, -3.5], [3.5, -3.5], [-3.5, 3.5], [3.5, 3.5]]
+      // Room-scale Chair matching Evening Room armchair scale: 36x36 cm seat (hw=18, hd=18) at local y = 0 (top surface at y = +1.5 cm)
+      vi = addBox(builder, indices, 0, 0, 0, 18.0, 1.5, 18.0, chairMain, vi)
+      // 4 legs down to local y = -30.0 cm
+      const legs: [number, number][] = [[-14.8, -14.8], [14.8, -14.8], [-14.8, 14.8], [14.8, 14.8]]
       for (const [lx, lz] of legs) {
-        vi = addBox(builder, indices, lx, -3.0, lz, 0.45, 3.0, 0.45, legCol, vi)
+        vi = addBox(builder, indices, lx, -15.0, lz, 1.6, 15.0, 1.6, legCol, vi)
       }
-      // Backrest posts + 2 horizontal slats up to y = +6.5
-      vi = addBox(builder, indices, -3.5, 3.4, -3.5, 0.45, 3.2, 0.45, chairTrim, vi)
-      vi = addBox(builder, indices, 3.5, 3.4, -3.5, 0.45, 3.2, 0.45, chairTrim, vi)
-      vi = addBox(builder, indices, 0, 5.5, -3.5, 3.8, 0.8, 0.35, chairTrim, vi)
-      vi = addBox(builder, indices, 0, 3.2, -3.5, 3.8, 0.6, 0.35, chairMain, vi)
+      // Backrest posts + 2 horizontal slats up to local y = +28.0 cm
+      vi = addBox(builder, indices, -14.8, 14.0, -14.8, 1.6, 13.5, 1.6, chairTrim, vi)
+      vi = addBox(builder, indices, 14.8, 14.0, -14.8, 1.6, 13.5, 1.6, chairTrim, vi)
+      vi = addBox(builder, indices, 0, 23.5, -14.8, 16.4, 3.2, 1.3, chairTrim, vi)
+      vi = addBox(builder, indices, 0, 13.5, -14.8, 16.4, 2.6, 1.3, chairMain, vi)
     } else if (this.furnitureKind === "shelf") {
       const shelfMain: RGBA = [Math.min(1, 0.32 + b), Math.min(1, 0.30 + b), Math.min(1, 0.38 + b), 1.0]
       const shelfTop: RGBA = [Math.min(1, 0.44 + b), Math.min(1, 0.42 + b), Math.min(1, 0.50 + b), 1.0]
-      // Upper shelf deck at y = +1.5 (top at y = +2.0 cm), 15 cm wide, 8 cm deep
-      vi = addBox(builder, indices, 0, 1.5, 0, 7.5, 0.5, 4.0, shelfTop, vi)
-      // Lower shelf deck at y = -3.0
-      vi = addBox(builder, indices, 0, -3.0, 0, 7.5, 0.45, 4.0, shelfMain, vi)
+      // Room-scale Wall Shelf: 52 cm wide (hw=26), 22 cm deep (hd=11)
+      // Upper shelf deck at local y = +5.2 cm (top surface at y = +6.5 cm)
+      vi = addBox(builder, indices, 0, 5.2, 0, 26.0, 1.3, 11.0, shelfTop, vi)
+      // Lower shelf deck at local y = -9.5 cm
+      vi = addBox(builder, indices, 0, -9.5, 0, 26.0, 1.2, 11.0, shelfMain, vi)
       // Side uprights
-      vi = addBox(builder, indices, -7.2, -0.8, 0, 0.45, 3.2, 3.8, legCol, vi)
-      vi = addBox(builder, indices, 7.2, -0.8, 0, 0.45, 3.2, 3.8, legCol, vi)
-    } else {
-      // "room_frame" — subtle 20 m² dark-room floor grid & corner rails so walking around in WASD feels grounded
-      const floorCol: RGBA = [Math.min(1, 0.16 + b * 0.6), Math.min(1, 0.18 + b * 0.6), Math.min(1, 0.24 + b * 0.6), 1.0]
-      const railCol: RGBA = [Math.min(1, 0.24 + b * 0.7), Math.min(1, 0.28 + b * 0.7), Math.min(1, 0.36 + b * 0.7), 1.0]
-      // Floor base board at y = -16.5
-      vi = addBox(builder, indices, 0, -16.5, 0, 23.0, 0.35, 13.0, floorCol, vi)
-      // Back-wall horizontal dado rail and two corner pillars
-      vi = addBox(builder, indices, 0, 14.0, -12.5, 23.0, 0.35, 0.35, railCol, vi)
-      vi = addBox(builder, indices, -22.8, -1.0, -12.5, 0.35, 15.5, 0.35, railCol, vi)
-      vi = addBox(builder, indices, 22.8, -1.0, -12.5, 0.35, 15.5, 0.35, railCol, vi)
+      vi = addBox(builder, indices, -24.4, -2.0, 0, 1.4, 9.8, 10.2, legCol, vi)
+      vi = addBox(builder, indices, 24.4, -2.0, 0, 1.4, 9.8, 10.2, legCol, vi)
     }
 
     builder.appendIndices(indices)

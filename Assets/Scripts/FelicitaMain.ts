@@ -116,9 +116,9 @@ export class FelicitaMain extends BaseScriptComponent {
   defaultRoomAreaSqM: number = 20
 
   @input
-  @widget(new SliderWidget(8, 45, 1))
+  @widget(new SliderWidget(8, 90, 1))
   @hint("Maximum distance in centimeters for snapping a dragged lamp onto a surface hotspot")
-  snapDistanceCm: number = 32
+  snapDistanceCm: number = 65
 
   @input
   @widget(new SliderWidget(100, 800, 50))
@@ -248,10 +248,10 @@ export class FelicitaMain extends BaseScriptComponent {
 
   private setupLamps(): void {
     const pairs: [string, FelicitaLampMesh, vec3][] = [
-      ["big_blue", this.lampBigBlue, new vec3(6, 7, 6)],
-      ["white_handle", this.lampWhiteHandle, new vec3(6, 7, 6)],
-      ["flashlight", this.lampFlashlight, new vec3(5, 6, 5)],
-      ["candle", this.lampCandle, new vec3(5, 6, 5)],
+      ["big_blue", this.lampBigBlue, new vec3(15, 18, 15)],
+      ["white_handle", this.lampWhiteHandle, new vec3(15, 18, 15)],
+      ["flashlight", this.lampFlashlight, new vec3(13, 16, 13)],
+      ["candle", this.lampCandle, new vec3(12, 15, 12)],
     ]
 
     for (const [id, comp, colSize] of pairs) {
@@ -295,7 +295,7 @@ export class FelicitaMain extends BaseScriptComponent {
       const so = comp.getSceneObject()
       const collider = so.createComponent("Physics.ColliderComponent") as ColliderComponent
       const box = Shape.createBoxShape()
-      box.size = new vec3(7.5, 4.0, 7.5)
+      box.size = new vec3(18.0, 9.0, 18.0)
       collider.shape = box
 
       const interactable = so.createComponent(Interactable.getTypeName()) as Interactable
@@ -314,7 +314,7 @@ export class FelicitaMain extends BaseScriptComponent {
     const so = this.darkCornerMarker.getSceneObject()
     const collider = so.createComponent("Physics.ColliderComponent") as ColliderComponent
     const box = Shape.createBoxShape()
-    box.size = new vec3(8.5, 8.5, 8.5)
+    box.size = new vec3(20.0, 16.0, 20.0)
     collider.shape = box
 
     this.darkCornerInteractable = so.createComponent(Interactable.getTypeName()) as Interactable

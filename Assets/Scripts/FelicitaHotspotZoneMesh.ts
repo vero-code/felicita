@@ -173,9 +173,9 @@ export class FelicitaHotspotZoneMesh extends BaseScriptComponent {
     builder.topology = MeshTopology.Triangles
     builder.indexType = MeshIndexType.UInt16
 
-    // 5 cm diameter = 2.5 cm radius subtle low-contrast grey dot
+    // 7 cm diameter = 3.5 cm radius subtle low-contrast grey dot at room scale
     const col: RGBA = this.isDarkCorner ? [0.55, 0.52, 0.62, 1.0] : [0.50, 0.54, 0.60, 1.0]
-    buildDiscOrRing(builder, 0.0, 2.5, 0.22, 20, col, 0)
+    buildDiscOrRing(builder, 0.0, 3.8, 0.35, 20, col, 0)
 
     rmv.mesh = builder.getMesh()
     if (this.material) rmv.mainMaterial = this.material
@@ -195,8 +195,8 @@ export class FelicitaHotspotZoneMesh extends BaseScriptComponent {
     const outerCol: RGBA = this.isDarkCorner ? [1.0, 0.78, 0.32, 1.0] : [0.38, 0.94, 1.0, 1.0]
     const innerCol: RGBA = this.isDarkCorner ? [1.0, 0.92, 0.55, 1.0] : [0.82, 0.98, 1.0, 1.0]
     let vi = 0
-    vi = buildDiscOrRing(builder, 2.7, 4.2, 0.32, 24, outerCol, vi)
-    vi = buildDiscOrRing(builder, 0.0, 1.6, 0.38, 20, innerCol, vi)
+    vi = buildDiscOrRing(builder, 6.2, 9.6, 0.45, 24, outerCol, vi)
+    vi = buildDiscOrRing(builder, 0.0, 3.6, 0.52, 20, innerCol, vi)
 
     rmv.mesh = builder.getMesh()
     if (this.material) rmv.mainMaterial = this.material
