@@ -7,12 +7,10 @@ export class Criterion1RoomFurniturePropsScenario extends Scenario {
   async run(): Promise<void> {
     await sleep(400)
 
-    const roomFrame = findSceneObjectByName("RoomFrame")
     const roomTable = findSceneObjectByName("RoomTable")
     const roomChair = findSceneObjectByName("RoomChair")
     const roomShelf = findSceneObjectByName("RoomShelf")
 
-    expect(roomFrame !== undefined && roomFrame.enabled, "RoomFrame should exist and be enabled").toBe(true)
     expect(roomTable !== undefined && roomTable.enabled, "RoomTable should exist and be enabled").toBe(true)
     expect(roomChair !== undefined && roomChair.enabled, "RoomChair should exist and be enabled").toBe(true)
     expect(roomShelf !== undefined && roomShelf.enabled, "RoomShelf should exist and be enabled").toBe(true)

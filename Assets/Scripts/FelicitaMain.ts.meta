@@ -43,7 +43,6 @@
     lampFlashlight: false
     lampWhiteHandle: false
     roomChair: false
-    roomFrame: false
     roomShelf: false
     roomTable: false
     snapDistanceCm: false
@@ -63,16 +62,15 @@
       roomTable: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
       roomChair: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
       roomShelf: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
-      roomFrame: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
-      lampBigBlue: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
-      lampWhiteHandle: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
-      lampFlashlight: !<MappingBased.AssignableType_9> 00000000-0000-0000-0000-000000000000
-      lampCandle: !<MappingBased.AssignableType_10> 00000000-0000-0000-0000-000000000000
-      hotspotTableCenter: !<MappingBased.AssignableType_11> 00000000-0000-0000-0000-000000000000
-      hotspotShelfEdge: !<MappingBased.AssignableType_12> 00000000-0000-0000-0000-000000000000
-      hotspotChairSide: !<MappingBased.AssignableType_13> 00000000-0000-0000-0000-000000000000
-      hotspotFloorFront: !<MappingBased.AssignableType_14> 00000000-0000-0000-0000-000000000000
-      darkCornerMarker: !<MappingBased.AssignableType_15> 00000000-0000-0000-0000-000000000000
+      lampBigBlue: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      lampWhiteHandle: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
+      lampFlashlight: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
+      lampCandle: !<MappingBased.AssignableType_9> 00000000-0000-0000-0000-000000000000
+      hotspotTableCenter: !<MappingBased.AssignableType_10> 00000000-0000-0000-0000-000000000000
+      hotspotShelfEdge: !<MappingBased.AssignableType_11> 00000000-0000-0000-0000-000000000000
+      hotspotChairSide: !<MappingBased.AssignableType_12> 00000000-0000-0000-0000-000000000000
+      hotspotFloorFront: !<MappingBased.AssignableType_13> 00000000-0000-0000-0000-000000000000
+      darkCornerMarker: !<MappingBased.AssignableType_14> 00000000-0000-0000-0000-000000000000
       defaultRoomAreaSqM: !<float> 20.000000
       snapDistanceCm: !<float> 32.000000
       bigBlueLumens: !<float> 400.000000
@@ -92,16 +90,15 @@
     - '// @input AssignableType_3 roomTable {"hint":"Simulated room table furniture mesh"}'
     - '// @input AssignableType_4 roomChair {"hint":"Simulated room chair furniture mesh"}'
     - '// @input AssignableType_5 roomShelf {"hint":"Simulated room shelf furniture mesh"}'
-    - '// @input AssignableType_6 roomFrame {"hint":"Simulated room perimeter floor/wall frame mesh"}'
-    - '// @input AssignableType_7 lampBigBlue {"hint":"Big Blue Lamp (400 lm) on table"}'
-    - '// @input AssignableType_8 lampWhiteHandle {"hint":"White Lamp with Handle (400 lm) on shelf"}'
-    - '// @input AssignableType_9 lampFlashlight {"hint":"Emergency Flashlight (250 lm) on table"}'
-    - '// @input AssignableType_10 lampCandle {"hint":"LED Emergency Candle (150 lm) on shelf"}'
-    - '// @input AssignableType_11 hotspotTableCenter {"hint":"Target placement hotspot on table center"}'
-    - '// @input AssignableType_12 hotspotShelfEdge {"hint":"Target placement hotspot on shelf front edge"}'
-    - '// @input AssignableType_13 hotspotChairSide {"hint":"Target placement hotspot near chair side"}'
-    - '// @input AssignableType_14 hotspotFloorFront {"hint":"Target placement hotspot on lower floor front"}'
-    - '// @input AssignableType_15 darkCornerMarker {"hint":"Distant unlit corner interactive marker"}'
+    - '// @input AssignableType_6 lampBigBlue {"hint":"Big Blue Lamp (400 lm) on table"}'
+    - '// @input AssignableType_7 lampWhiteHandle {"hint":"White Lamp with Handle (400 lm) on shelf"}'
+    - '// @input AssignableType_8 lampFlashlight {"hint":"Emergency Flashlight (250 lm) on table"}'
+    - '// @input AssignableType_9 lampCandle {"hint":"LED Emergency Candle (150 lm) on shelf"}'
+    - '// @input AssignableType_10 hotspotTableCenter {"hint":"Target placement hotspot on table center"}'
+    - '// @input AssignableType_11 hotspotShelfEdge {"hint":"Target placement hotspot on shelf front edge"}'
+    - '// @input AssignableType_12 hotspotChairSide {"hint":"Target placement hotspot near chair side"}'
+    - '// @input AssignableType_13 hotspotFloorFront {"hint":"Target placement hotspot on lower floor front"}'
+    - '// @input AssignableType_14 darkCornerMarker {"hint":"Distant unlit corner interactive marker"}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'

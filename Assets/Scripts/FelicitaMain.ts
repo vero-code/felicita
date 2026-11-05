@@ -71,10 +71,6 @@ export class FelicitaMain extends BaseScriptComponent {
   roomShelf!: FelicitaRoomFurnitureMesh
 
   @input
-  @hint("Simulated room perimeter floor/wall frame mesh")
-  roomFrame!: FelicitaRoomFurnitureMesh
-
-  @input
   @hint("Big Blue Lamp (400 lm) on table")
   lampBigBlue!: FelicitaLampMesh
 
@@ -483,7 +479,6 @@ export class FelicitaMain extends BaseScriptComponent {
     if (this.roomTable) this.roomTable.setIlluminationBoost(boost01)
     if (this.roomChair) this.roomChair.setIlluminationBoost(boost01)
     if (this.roomShelf) this.roomShelf.setIlluminationBoost(boost01)
-    if (this.roomFrame) this.roomFrame.setIlluminationBoost(boost01)
 
     // 4. Push readout to Status HUD UI module
     this.statusHud.setIllumination(
