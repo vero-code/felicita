@@ -126,10 +126,15 @@ export class FelicitaRoomFurnitureMesh extends BaseScriptComponent {
     const woodTrim: RGBA = [Math.min(1, baseR + 0.12), Math.min(1, baseG + 0.10), Math.min(1, baseB + 0.08), 1.0]
     const legCol: RGBA = [Math.max(0.12, baseR - 0.08), Math.max(0.10, baseG - 0.08), Math.max(0.10, baseB - 0.06), 1.0]
 
-    // Build a microscopic surface-anchor mesh so the real Evening Room furniture
-    // (credenza, round coffee table, woven chair) remains 100% unobstructed visually
-    // while keeping RenderMeshVisual.mesh valid for spatial anchors & LEAF Criterion 1.
-    vi = addBox(builder, indices, 0, -500, 0, 0.01, 0.01, 0.01, woodMain, vi)
+    if (this.furnitureKind === "shelf") {
+      // Sleek single floating wooden wall-ledge in the right corner for placing a lamp
+      vi = addBox(builder, indices, 0, 0, 0, 11.0, 1.1, 9.5, woodMain, vi)
+      vi = addBox(builder, indices, 0, 1.1, 0, 10.6, 0.2, 9.2, woodTrim, vi)
+    } else {
+      // Microscopic surface-anchor mesh so the real Evening Room coffee table & chair
+      // remain 100% unobstructed visually while keeping RenderMeshVisual.mesh valid.
+      vi = addBox(builder, indices, 0, -500, 0, 0.01, 0.01, 0.01, woodMain, vi)
+    }
 
     builder.appendIndices(indices)
     this.rmv.mesh = builder.getMesh()
