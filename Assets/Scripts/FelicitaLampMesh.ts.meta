@@ -30,6 +30,7 @@
   ScriptInputsHidden:
     lampKind: false
     material: false
+    modelPrefab: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -40,6 +41,7 @@
     []
   DefaultScriptInputs:
     - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      modelPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       lampKind: big_blue
   ScriptTypes:
     -
@@ -49,6 +51,7 @@
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"group_start", "label":"References"}'
     - '// @input Asset.Material material {"hint":"Vertex color material from SimpleVertexBaseColor.lspkg"}'
+    - '// @input Asset.ObjectPrefab modelPrefab {"hint":"Generated 3D GLB prefab for this lamp (replaces procedural body geometry when assigned)"}'
     - '// @ui {"widget":"group_end"}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"group_start", "label":"Settings"}'

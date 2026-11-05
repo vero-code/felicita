@@ -838,6 +838,7 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      modelPrefab: !<reference.ObjectPrefab> e43639ab-e864-4353-9348-ebdff4294bc9
       lampKind: big_blue
   ScriptTypes:
     "":
@@ -1217,6 +1218,7 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      modelPrefab: !<reference.ObjectPrefab> 307bde56-1c08-462b-8c9d-4ed9da8609a7
       lampKind: white_handle
   ScriptTypes:
     "":
@@ -1234,6 +1236,7 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      modelPrefab: !<reference.ObjectPrefab> 0cbd081b-8f3f-4899-b5d1-41fef78d7e0b
       lampKind: flashlight
   ScriptTypes:
     "":
@@ -2820,6 +2823,7 @@
   ScriptInputs:
     "":
       material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      modelPrefab: !<reference.ObjectPrefab> 01966f5d-6fdd-43cc-b6fc-218fa39fb697
       lampKind: candle
   ScriptTypes:
     "":

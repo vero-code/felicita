@@ -167,6 +167,11 @@ export class FelicitaLampMesh extends BaseScriptComponent {
   @input
   @hint("Vertex color material from SimpleVertexBaseColor.lspkg")
   material!: Material
+
+  @input
+  @allowUndefined
+  @hint("Generated 3D GLB prefab for this lamp (replaces procedural body geometry when assigned)")
+  modelPrefab?: ObjectPrefab
   @ui.group_end
 
   @ui.separator
@@ -185,6 +190,7 @@ export class FelicitaLampMesh extends BaseScriptComponent {
   private bodySO!: SceneObject
   private glowSO!: SceneObject
   private dotSO!: SceneObject
+  private instantiatedModel: SceneObject | null = null
   private isLit: boolean = false
   private isHeld: boolean = false
   private pulseTime: number = 0
@@ -192,6 +198,11 @@ export class FelicitaLampMesh extends BaseScriptComponent {
   onAwake(): void {
     this.bodySO = global.scene.createSceneObject("LampVisualBody")
     this.bodySO.setParent(this.sceneObject)
+
+    if (this.modelPrefab) {
+      this.instantiatedModel = this.modelPrefab.instantiate(this.bodySO)
+      this.bodySO.getTransform().setLocalScale(new vec3(1.25, 1.25, 1.25))
+    }
 
     this.glowSO = global.scene.createSceneObject("LampGlowCore")
     this.glowSO.setParent(this.sceneObject)
@@ -225,19 +236,7 @@ export class FelicitaLampMesh extends BaseScriptComponent {
   }
 
   private buildVisuals(lit: boolean): void {
-    // 1. Body mesh
-    let bodyRmv = this.bodySO.getComponent("Component.RenderMeshVisual") as RenderMeshVisual | null
-    if (!bodyRmv) bodyRmv = this.bodySO.createComponent("Component.RenderMeshVisual") as RenderMeshVisual
-
-    const bodyBuilder = new MeshBuilder([
-      { name: "position", components: 3 },
-      { name: "normal", components: 3, normalized: true },
-      { name: "color", components: 4 },
-    ])
-    bodyBuilder.topology = MeshTopology.Triangles
-    bodyBuilder.indexType = MeshIndexType.UInt16
-
-    // 2. Glow emitter mesh
+    // 1. Glow emitter mesh (always built on LampGlowCore; when modelPrefab is used, renders a warm base halo when lit)
     let glowRmv = this.glowSO.getComponent("Component.RenderMeshVisual") as RenderMeshVisual | null
     if (!glowRmv) glowRmv = this.glowSO.createComponent("Component.RenderMeshVisual") as RenderMeshVisual
 
@@ -249,76 +248,105 @@ export class FelicitaLampMesh extends BaseScriptComponent {
     glowBuilder.topology = MeshTopology.Triangles
     glowBuilder.indexType = MeshIndexType.UInt16
 
-    const mult = lit ? 1.0 : 0.65
-
-    const S = 2.1
-    const scaleProfile = (pts: [number, number][]): [number, number][] =>
-      pts.map(([r, y]) => [r * S, y * S])
-
-    if (this.lampKind === "big_blue") {
-      const blueBody: RGBA = [0.18 * mult, 0.52 * mult, 0.95 * mult, 1.0]
-      const capCol: RGBA = [0.22 * mult, 0.28 * mult, 0.38 * mult, 1.0]
-      let vi = 0
-      vi = buildLathe(bodyBuilder, scaleProfile([
-        [0.0, 0.0], [2.2, 0.0], [2.3, 0.8], [2.0, 2.8], [2.3, 3.2], [0.0, 3.2]
-      ]), 20, blueBody, vi)
-      vi = buildLathe(bodyBuilder, scaleProfile([
-        [0.0, 5.2], [2.2, 5.2], [1.6, 5.9], [0.0, 5.9]
-      ]), 20, capCol, vi)
-
-      const bulbCol: RGBA = lit ? [0.72, 0.96, 1.0, 1.0] : [0.42, 0.52, 0.62, 1.0]
-      buildLathe(glowBuilder, scaleProfile([
-        [1.7, 3.1], [1.85, 4.2], [1.7, 5.25]
-      ]), 20, bulbCol, 0)
-    } else if (this.lampKind === "white_handle") {
-      const whiteBody: RGBA = [0.85 * mult, 0.88 * mult, 0.94 * mult, 1.0]
-      let vi = 0
-      vi = buildLathe(bodyBuilder, scaleProfile([
-        [0.0, 0.0], [2.0, 0.0], [2.1, 2.4], [1.5, 2.8], [0.0, 2.8]
-      ]), 20, whiteBody, vi)
-      // Curved handle arch on top
-      const arch: [number, number, number][] = []
-      for (let k = 0; k <= 12; k++) {
-        const a = (k / 12) * Math.PI
-        arch.push([Math.cos(a) * 1.5 * S, (4.4 + Math.sin(a) * 1.4) * S, 0])
-      }
-      vi = buildTube(bodyBuilder, arch, 0.24 * S, 8, whiteBody, vi)
-
-      const bulbCol: RGBA = lit ? [1.0, 0.95, 0.76, 1.0] : [0.55, 0.55, 0.58, 1.0]
-      buildLathe(glowBuilder, scaleProfile([
-        [1.4, 2.7], [1.8, 3.7], [1.2, 4.6], [0.0, 4.7]
-      ]), 20, bulbCol, 0)
-    } else if (this.lampKind === "flashlight") {
-      const slateCol: RGBA = [0.35 * mult, 0.42 * mult, 0.52 * mult, 1.0]
-      buildLathe(bodyBuilder, scaleProfile([
-        [0.0, 0.0], [1.1, 0.0], [1.1, 3.0], [1.85, 4.3], [0.0, 4.3]
-      ]), 18, slateCol, 0)
-
-      const beamCol: RGBA = lit ? [0.95, 0.98, 0.78, 1.0] : [0.48, 0.50, 0.54, 1.0]
-      buildLathe(glowBuilder, scaleProfile([
-        [0.0, 4.3], [1.65, 4.35], [2.1, 5.4], [0.0, 5.4]
-      ]), 18, beamCol, 0)
+    if (this.instantiatedModel) {
+      // Using generated 3D GLB model for the lamp body; add warm glowing base ring when lit
+      const haloCol: RGBA =
+        this.lampKind === "big_blue"
+          ? [0.65, 0.94, 1.0, 1.0]
+          : this.lampKind === "white_handle"
+            ? [1.0, 0.95, 0.76, 1.0]
+            : this.lampKind === "flashlight"
+              ? [0.95, 0.98, 0.78, 1.0]
+              : [1.0, 0.80, 0.28, 1.0]
+      const r = lit ? 5.8 : 0.01
+      buildLathe(glowBuilder, [
+        [0.0, 0.05], [r, 0.05], [r, 0.35], [0.0, 0.35]
+      ], 20, haloCol, 0)
+      glowRmv.mesh = glowBuilder.getMesh()
+      if (this.material) glowRmv.mainMaterial = this.material
+      glowBuilder.updateMesh()
+      glowRmv.enabled = lit
     } else {
-      // "candle"
-      const waxCol: RGBA = [0.90 * mult, 0.86 * mult, 0.74 * mult, 1.0]
-      buildLathe(bodyBuilder, scaleProfile([
-        [0.0, 0.0], [1.35, 0.0], [1.3, 3.4], [0.2, 3.5], [0.0, 3.5]
-      ]), 18, waxCol, 0)
+      // Procedural fallback if no modelPrefab is wired
+      let bodyRmv = this.bodySO.getComponent("Component.RenderMeshVisual") as RenderMeshVisual | null
+      if (!bodyRmv) bodyRmv = this.bodySO.createComponent("Component.RenderMeshVisual") as RenderMeshVisual
 
-      const flameCol: RGBA = lit ? [1.0, 0.80, 0.28, 1.0] : [0.55, 0.48, 0.38, 1.0]
-      buildLathe(glowBuilder, scaleProfile([
-        [0.0, 3.5], [0.55, 4.0], [0.35, 4.8], [0.0, 5.3]
-      ]), 16, flameCol, 0)
-    }
+      const bodyBuilder = new MeshBuilder([
+        { name: "position", components: 3 },
+        { name: "normal", components: 3, normalized: true },
+        { name: "color", components: 4 },
+      ])
+      bodyBuilder.topology = MeshTopology.Triangles
+      bodyBuilder.indexType = MeshIndexType.UInt16
 
-    bodyRmv.mesh = bodyBuilder.getMesh()
-    glowRmv.mesh = glowBuilder.getMesh()
-    if (this.material) {
-      bodyRmv.mainMaterial = this.material
-      glowRmv.mainMaterial = this.material
+      const mult = lit ? 1.0 : 0.65
+      const S = 2.1
+      const scaleProfile = (pts: [number, number][]): [number, number][] =>
+        pts.map(([r, y]) => [r * S, y * S])
+
+      if (this.lampKind === "big_blue") {
+        const blueBody: RGBA = [0.18 * mult, 0.52 * mult, 0.95 * mult, 1.0]
+        const capCol: RGBA = [0.22 * mult, 0.28 * mult, 0.38 * mult, 1.0]
+        let vi = 0
+        vi = buildLathe(bodyBuilder, scaleProfile([
+          [0.0, 0.0], [2.2, 0.0], [2.3, 0.8], [2.0, 2.8], [2.3, 3.2], [0.0, 3.2]
+        ]), 20, blueBody, vi)
+        vi = buildLathe(bodyBuilder, scaleProfile([
+          [0.0, 5.2], [2.2, 5.2], [1.6, 5.9], [0.0, 5.9]
+        ]), 20, capCol, vi)
+
+        const bulbCol: RGBA = lit ? [0.72, 0.96, 1.0, 1.0] : [0.42, 0.52, 0.62, 1.0]
+        buildLathe(glowBuilder, scaleProfile([
+          [1.7, 3.1], [1.85, 4.2], [1.7, 5.25]
+        ]), 20, bulbCol, 0)
+      } else if (this.lampKind === "white_handle") {
+        const whiteBody: RGBA = [0.85 * mult, 0.88 * mult, 0.94 * mult, 1.0]
+        let vi = 0
+        vi = buildLathe(bodyBuilder, scaleProfile([
+          [0.0, 0.0], [2.0, 0.0], [2.1, 2.4], [1.5, 2.8], [0.0, 2.8]
+        ]), 20, whiteBody, vi)
+        const arch: [number, number, number][] = []
+        for (let k = 0; k <= 12; k++) {
+          const a = (k / 12) * Math.PI
+          arch.push([Math.cos(a) * 1.5 * S, (4.4 + Math.sin(a) * 1.4) * S, 0])
+        }
+        vi = buildTube(bodyBuilder, arch, 0.24 * S, 8, whiteBody, vi)
+
+        const bulbCol: RGBA = lit ? [1.0, 0.95, 0.76, 1.0] : [0.55, 0.55, 0.58, 1.0]
+        buildLathe(glowBuilder, scaleProfile([
+          [1.4, 2.7], [1.8, 3.7], [1.2, 4.6], [0.0, 4.7]
+        ]), 20, bulbCol, 0)
+      } else if (this.lampKind === "flashlight") {
+        const slateCol: RGBA = [0.35 * mult, 0.42 * mult, 0.52 * mult, 1.0]
+        buildLathe(bodyBuilder, scaleProfile([
+          [0.0, 0.0], [1.1, 0.0], [1.1, 3.0], [1.85, 4.3], [0.0, 4.3]
+        ]), 18, slateCol, 0)
+
+        const beamCol: RGBA = lit ? [0.95, 0.98, 0.78, 1.0] : [0.48, 0.50, 0.54, 1.0]
+        buildLathe(glowBuilder, scaleProfile([
+          [0.0, 4.3], [1.65, 4.35], [2.1, 5.4], [0.0, 5.4]
+        ]), 18, beamCol, 0)
+      } else {
+        const waxCol: RGBA = [0.90 * mult, 0.86 * mult, 0.74 * mult, 1.0]
+        buildLathe(bodyBuilder, scaleProfile([
+          [0.0, 0.0], [1.35, 0.0], [1.3, 3.4], [0.2, 3.5], [0.0, 3.5]
+        ]), 18, waxCol, 0)
+
+        const flameCol: RGBA = lit ? [1.0, 0.80, 0.28, 1.0] : [0.55, 0.48, 0.38, 1.0]
+        buildLathe(glowBuilder, scaleProfile([
+          [0.0, 3.5], [0.55, 4.0], [0.35, 4.8], [0.0, 5.3]
+        ]), 16, flameCol, 0)
+      }
+
+      bodyRmv.mesh = bodyBuilder.getMesh()
+      glowRmv.mesh = glowBuilder.getMesh()
+      if (this.material) {
+        bodyRmv.mainMaterial = this.material
+        glowRmv.mainMaterial = this.material
+      }
+      bodyBuilder.updateMesh()
+      glowBuilder.updateMesh()
     }
-    bodyBuilder.updateMesh()
-    glowBuilder.updateMesh()
 
     // 3. Subtle low-contrast grey base dot (5.2 cm radius)
     let dotRmv = this.dotSO.getComponent("Component.RenderMeshVisual") as RenderMeshVisual | null
